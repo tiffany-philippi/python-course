@@ -1,3 +1,6 @@
+from itertools import count
+
+
 def jogar_forca():
     print("*********************************")
     print("Bem vindo ao jogo de forca!")
@@ -5,16 +8,23 @@ def jogar_forca():
 
     pontos = 1000
     pontos_perdidos = 0
-    palavra_secreta = "banana"
+
+    palavra_secreta = ("banana").upper()
+    letras_acertadas = ["_", "_", "_", "_", "_", "_"]
+    print(letras_acertadas)
+
     enforcou = False
     acertou = False
+
     while (not enforcou and not acertou):
-        tentativa = input ("Qual a letra? ")
+        tentativa = input ("Qual a letra? ").upper().strip()
         index = 0
+
         for letra in palavra_secreta:
             if (tentativa == letra):
-                index = index + 1
-                print(tentativa)
+                letras_acertadas[index] = letra;
+            index = index + 1
+        print(letras_acertadas)
 
         palavra_secreta.find(tentativa)
 
